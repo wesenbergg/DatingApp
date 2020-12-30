@@ -1,0 +1,27 @@
+<form #registerForm="ngForm" (ngSubmit)="register()"
+  class="jumbotron">
+  <h1 class="cover-heading">Registration</h1>
+  <p class="lead">Fill in form to register.</p>
+
+  <div class="form-group">
+    <label>Email address</label>
+    <input [(ngModel)]="model.username" name="username" placeholder="Username"
+      type="text" class="form-control" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">Username must be unique and consist of 3-18 characters.</small>
+  </div>
+
+  <div class="form-group">
+    <label>Password</label>
+    <input [(ngModel)]="model.password" name="password"
+    type="password" class="form-control" placeholder="Password">
+  </div>
+  <!-- <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">I have read the terms and condtitions</label>
+  </div> -->
+
+  <p class="lead">
+    <button class="btn btn-lg btn-danger mr-2" type="submit">Register</button>
+    <a class="btn btn-lg btn-outline-danger" (click)="cancel()">Cancel</a>
+  </p>
+</form>

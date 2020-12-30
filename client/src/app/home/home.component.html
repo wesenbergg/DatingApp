@@ -1,0 +1,12 @@
+<div *ngIf="!registerMode" class="jumbotron">
+  <h1 class="cover-heading">Dating app</h1>
+  <p class="lead">Welcome to dating app! Please register to start finding your perfect match.</p>
+  <p class="lead">
+    <a class="btn btn-lg btn-danger mr-2" (click)="toggleRegisterMode()">Register</a>
+    <a class="btn btn-lg btn-outline-danger">Log in</a>
+  </p>
+</div>
+
+<div *ngIf="registerMode">
+  <app-register (registrationCancel)="cancelRegistrationMode($event)" ></app-register>
+</div>
