@@ -39,7 +39,9 @@
         <h3>Interests</h3>
         <p>{{member.interests}}</p>
       </tab>
-      <tab heading="Photos">Photos not implemented yet</tab>
+      <tab heading="Photos">
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+      </tab>
       <tab heading="Messages">Messages not implemented yet</tab>
     </tabset>
     

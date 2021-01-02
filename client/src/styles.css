@@ -48,3 +48,6 @@
 .member-tabset a {
   color: #E95420;
 }
+
+/**ngx-gallery**/
+.ngx-gallery { display: inline-block; margin-bottom: 20px; }
