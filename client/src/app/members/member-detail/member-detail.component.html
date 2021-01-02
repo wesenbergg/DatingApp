@@ -1,1 +1,47 @@
-<p>member-detail works!</p>
+<div *ngIf="member" class="row mt-5">
+  <div class="col-4">
+    <div class="card mt-2" >
+      <img class="card-img-top" src={{member.photoUrl}} alt="Card image cap">
+      
+      <div class="card-body">
+        <p class="font-weight-bold mb-0">
+          <i class="fa fa-map-pin mr-2"></i>
+          Location:
+        </p>
+        <p class="">{{member.city}}</p>
+        <p class="font-weight-bold mb-0">
+          Age:
+        </p>
+        <p class="">{{member.age}}</p>
+        <p class="font-weight-bold mb-0">
+          Last active:
+        </p>
+        <p class="">{{member.lastActive}}</p>
+        <p class="font-weight-bold mb-0">
+          Member since:
+        </p>
+        <p class="">{{member.created}}</p>
+        <button class="btn btn-danger btn-block"><i class="fa fa-heart mr-2"></i>Like</button>
+        <button class="btn btn-primary btn-block"><i class="fa fa-envelope mr-2"></i>Message</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <tabset class="member-tabset">
+      <tab heading="About {{member.knownAs}}">
+        <h3>Description</h3>
+        <p>{{member.introduction}}</p>
+        <h3>Looking for</h3>
+        <p>{{member.lookingFor}}</p>
+        <button class="btn btn-primary" routerLink="/members">Back</button>
+      </tab>
+      <tab heading="Interests">
+        <h3>Interests</h3>
+        <p>{{member.interests}}</p>
+      </tab>
+      <tab heading="Photos">Photos not implemented yet</tab>
+      <tab heading="Messages">Messages not implemented yet</tab>
+    </tabset>
+    
+  </div>
+</div>
