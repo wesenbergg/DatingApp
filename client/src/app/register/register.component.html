@@ -1,4 +1,4 @@
-<form [formGroup]="registrationForm" (ngSubmit)="register()"
+<form [formGroup]="registrationForm" (ngSubmit)="registrationForm.valid && register()"
   class="jumbotron">
   <h1 class="cover-heading">Registration</h1>
   <p class="lead">Fill in form to register.</p>
@@ -33,7 +33,7 @@
   </div> -->
 
   <p class="lead">
-    <button class="btn btn-lg btn-danger mr-2" type="submit">Register</button>
+    <button [disabled]="!registrationForm.valid" class="btn btn-lg btn-danger mr-2" type="submit">Register</button>
     <a class="btn btn-lg btn-outline-danger" (click)="cancel()">Cancel</a>
   </p>
 </form>

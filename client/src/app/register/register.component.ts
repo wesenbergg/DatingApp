@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AccountsService } from '../_services/accounts.service';
 
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private accountService: AccountsService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -45,14 +46,14 @@ export class RegisterComponent implements OnInit {
   }
 
   register(): void {
-    // this.accountService.register(this.model).subscribe(
-    //   res => {
-    //     console.log(res);
-    //     this.cancel();
-    //   }, err => {
-    //     console.log(err);
-    //     this.toastr.error(err.error);
-    //   })
+    this.accountService.register(this.registrationForm.value).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigateByUrl('/members')
+      }, err => {
+        console.log(err);
+        this.toastr.error(err.error);
+      })
   }
 
   cancel(): void {

@@ -1,7 +1,7 @@
 <div *ngIf="member" class="row mt-5">
   <div class="col-4">
     <div class="card mt-2" >
-      <img class="card-img-top" src={{member.photoUrl}} alt="Card image cap">
+      <img class="card-img-top" src="{{member.photoUrl || './assets/user.png'}}" alt="Card image cap">
       
       <div class="card-body">
         <p class="font-weight-bold mb-0">
