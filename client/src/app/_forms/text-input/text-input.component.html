@@ -1,0 +1,18 @@
+<div class="form-group">
+  <label>{{label}}</label>
+  <input [class.is-invalid]="ngControl.invalid &&
+  ngControl.touched"
+  [formControl]="ngControl.control"
+  type="{{type}}"
+  class="form-control"
+  placeholder="{{label}}">
+  <small *ngIf="ngControl.control.errors?.required" class="invalid-feedback">
+    {{label}} is required.
+  </small>
+  <small *ngIf="ngControl.control.errors?.minlength" class="invalid-feedback">
+    {{label}} should be atleast {{ngControl.control.errors.minlength['requiredLength']}} characters.
+  </small>
+  <small *ngIf="ngControl.control.errors?.matching" class="invalid-feedback">
+    {{label}} has to match password.
+  </small>
+</div>

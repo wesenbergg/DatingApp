@@ -1,20 +1,32 @@
-<form #registerForm="ngForm" (ngSubmit)="register()"
+<form [formGroup]="registrationForm" (ngSubmit)="register()"
   class="jumbotron">
   <h1 class="cover-heading">Registration</h1>
   <p class="lead">Fill in form to register.</p>
 
-  <div class="form-group">
-    <label>Username</label>
-    <input [(ngModel)]="model.username" name="username" placeholder="Username"
-      type="text" class="form-control" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">Username must be unique and consist of 3-18 characters.</small>
+  <div class="form-check">
+    <span class="mr-5">I'm a:</span> 
+    <input class="form-check-input mr-5" type="radio" value="male" formControlName="gender">
+    <label class="form-check-label mr-5">
+      Male
+    </label>
+    <input class="form-check-input mr-5" type="radio" value="female" formControlName="gender">
+    <label class="form-check-label mr-5">
+      Female
+    </label>
+    <input class="form-check-input mr-5" type="radio" value="other" formControlName="gender">
+    <label class="form-check-label mr-5">
+      Other
+    </label>
   </div>
 
-  <div class="form-group">
-    <label>Password</label>
-    <input [(ngModel)]="model.password" name="password"
-    type="password" class="form-control" placeholder="Password">
-  </div>
+  <app-text-input [formControl]="registrationForm.controls['userName']" [label]="'Username'" ></app-text-input>
+  <app-text-input [formControl]="registrationForm.controls['knownAs']" [label]="'Known as'" ></app-text-input>
+  <app-date-input [formControl]="registrationForm.controls['dateOfBirth']" [label]="'Date of birth'" [maxDate]="maxDate" ></app-date-input>
+  <app-text-input [formControl]="registrationForm.controls['city']" [label]="'City'" ></app-text-input>
+  <app-text-input [formControl]="registrationForm.controls['country']" [label]="'Country'" ></app-text-input>
+  <app-text-input [formControl]="registrationForm.controls['password']" [label]="'Password'" [type]="'password'" ></app-text-input>
+  <app-text-input [formControl]="registrationForm.controls['confirmPassword']" [label]="'Confirm password'" [type]="'password'" ></app-text-input>
+
   <!-- <div class="form-group form-check">
     <input type="checkbox" class="form-check-input">
     <label class="form-check-label">I have read the terms and condtitions</label>
@@ -25,3 +37,6 @@
     <a class="btn btn-lg btn-outline-danger" (click)="cancel()">Cancel</a>
   </p>
 </form>
+
+<p>Form value: {{registrationForm.value | json}}</p>
+<p>Form value: {{registrationForm.status | json}}</p>
